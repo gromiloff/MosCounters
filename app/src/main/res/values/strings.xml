@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">МосРу</string>
+
+    <!-- системные значения -->
+    <string name="empty" />
+    <string name="tag_id">tag_object</string>
+    <string name="tag_object">tag_object</string>
+    <string name="tag_key">tag_key</string>
+    <string name="tag_vh">tag_vh</string>
+
+    <!-- шапки -->
+
+    <!-- контентные значения -->
+</resources>

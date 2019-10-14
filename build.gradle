@@ -1,0 +1,30 @@
+buildscript {
+    apply from: 'version_refs.gradle'
+    apply from: 'version_app.gradle'
+    addRepos(repositories)
+    
+    ext.keys = [
+        'release': [
+            'storePassword' : 'zoonb2b',
+            'keyAlias' : 'zoon-b2b',
+            'keyPassword' : 'zoonb2b',
+            'storeFile' : rootProject.file('release.jks')
+        ]
+    ]
+    
+    dependencies {
+        classpath deps.plugin.gradle
+        classpath deps.plugin.kotlin
+      //  classpath deps.plugin.google_services
+        classpath deps.plugin.fabric
+        
+        /*if (!project.hasProperty("disable-performance-plugin")) {
+            classpath('com.google.firebase:firebase-plugins:1.1.5')
+                    { exclude group: 'com.google.guava', module: 'guava-jdk5' }
+        }*/
+    }
+}
+
+allprojects {
+    addRepos(repositories)
+}

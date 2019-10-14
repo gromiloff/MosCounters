@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="ur_dimen_list_divider_height">1dp</dimen>
+    <dimen name="ur_dimen_list_scrollbar_round">2dp</dimen>
+    <dimen name="ur_dimen_list_scrollbar_size">4dp</dimen>
+</resources>

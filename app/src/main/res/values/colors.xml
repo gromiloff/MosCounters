@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2c2c35</color>
+    <color name="colorPrimaryDark">#2c2c35</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="pale_grey">#e6ecf2</color>
+    <color name="pale_grey10">#1ae6ecf2</color>
+    <color name="charcoal_grey">#3d3f55</color>
+    <color name="charcoal_grey_two">#2c2d36</color>
+    <color name="purpleish_blue">#6339f5</color>
+    <color name="cool_grey">#a7a7ae</color>
+    <color name="light_blue_grey">#cdd9e5</color>
+    <color name="pale_grey_two">#f4f5f8</color>
+    <color name="warm_pink">#f84177</color>
+
+    <color name="dark">#22232a</color>
+    <color name="periwinkle">#9f83ff</color>
+    <color name="periwinkle20">#339f83ff</color>
+    <color name="periwinkle30">#4d9f83ff</color>
+    <color name="charcoal_grey_two30">#4d2c2d36</color>
+
+    <color name="menu_inactive">#C0C8DC</color>
+</resources>

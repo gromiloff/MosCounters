@@ -1,0 +1,96 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'io.fabric'
+if (!project.hasProperty("disable-performance-plugin")) {
+//    apply plugin: 'com.google.firebase.firebase-perf'
+}
+
+android {
+    compileSdkVersion build_versions.target_sdk
+
+    signingConfigs {
+        release {
+            storePassword keys.release.storePassword
+            keyAlias keys.release.keyAlias
+            keyPassword keys.release.keyPassword
+            storeFile keys.release.storeFile
+        }
+    }
+    
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+        applicationId "pro.gromiloff.mos.counters"
+        multiDexEnabled true
+
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+
+        versionCode build_versions.versionCode
+        versionName build_versions.versionName
+
+        setProperty("archivesBaseName", "$versionName($versionCode)")
+        
+        buildConfigField "String", 'USER_AGENT', '"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"'
+    }
+    buildTypes {
+        debug {
+            versionNameSuffix ".dev"
+            useProguard false
+            minifyEnabled false
+            proguardFiles('../proguard-rules.pro', getDefaultProguardFile('proguard-android.txt'))
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            proguardFiles('../proguard-rules.pro', getDefaultProguardFile('proguard-android.txt'))
+
+            applicationVariants.all { variant ->
+
+                variant.outputs.each { output ->
+                    if (variant.mappingFile != null) {
+                        copy {
+                            from variant.mappingFile
+                            into "..\\..\\build\\release"
+                            rename { String fileName -> "${build_versions.versionName}(${build_versions.versionCode}).mapping" }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    api project(':gromiloff.utils')
+    
+    api deps.play
+
+    api deps.lifecycle.extensions
+    api deps.lifecycle.viewmodel
+
+    api deps.navigation.fragment
+    api deps.navigation.ui
+
+    api deps.kotlin.stdlib
+
+    api deps.fastadapter.base
+    api deps.fastadapter.commons
+    
+    api deps.retrofit.runtime
+    api deps.retrofit.gson
+    api deps.okhttp_logging_interceptor
+    api deps.gson
+
+    api(deps.materialDialogs) { transitive = true }
+    api(deps.materialdrawer) { transitive = true }
+
+    compile 'org.jsoup:jsoup:1.12.1'
+   // api(deps.fabric.crashlytics) { transitive = true }
+
+   // api(deps.firebase.core) { exclude group: 'com.android.support'; transitive = true }
+   // api(deps.firebase.analytics) { exclude group: 'com.android.support'; transitive = true }
+  //  api(deps.firebase.perf) { exclude group: 'com.android.support'; transitive = true }
+}
+
+//apply plugin: 'com.google.gms.google-services'

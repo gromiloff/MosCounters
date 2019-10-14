@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+group='com.github.gromiloff'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+android {
+    compileSdkVersion build_versions.target_sdk
+
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        
+        versionCode 1
+        versionName "1.0.0"
+    }
+    buildTypes {
+        debug {
+            useProguard false
+            minifyEnabled false
+            proguardFiles ( getDefaultProguardFile('proguard-android.txt') )
+        }
+        release {
+            useProguard true
+            minifyEnabled true
+            proguardFiles ( getDefaultProguardFile('proguard-android.txt') )
+        }
+    }
+}
+
+dependencies {
+    api deps.kotlin.stdlib
+    api deps.androidx.activity
+    api deps.lifecycle.extensions
+    api deps.retrofit.okhttp3
+    
+    api (deps.glide.runtime) { exclude group: 'com.android.support' }
+    api (deps.glide.okhttp3) { exclude group: 'glide-parent' }
+
+    kapt deps.lifecycle.compiler
+    kapt deps.glide.compiler
+}
+
+repositories {
+    mavenCentral()
+}

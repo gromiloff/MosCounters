@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/id_swipe_refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbarSize="@dimen/ur_dimen_list_scrollbar_size"
+        android:scrollbars="vertical" />
+    <!--android:scrollbarThumbVertical="@drawable/ur_drawable_list_scrollbar"/>-->
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
