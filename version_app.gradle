@@ -1,6 +1,6 @@
 def versionMajor = 0
-def versionMinor = 4
-def versionBuild = 0
+def versionMinor = 0
+def versionBuild = 1
 
 def build_versions = [:]
 build_versions.versionCode = versionMajor * 10000 + versionMinor * 1000 + versionBuild

@@ -8,7 +8,7 @@ if (!project.hasProperty("disable-performance-plugin")) {
 
 android {
     compileSdkVersion build_versions.target_sdk
-
+/*
     signingConfigs {
         release {
             storePassword keys.release.storePassword
@@ -16,7 +16,7 @@ android {
             keyPassword keys.release.keyPassword
             storeFile keys.release.storeFile
         }
-    }
+    }*/
     
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
@@ -38,25 +38,12 @@ android {
             versionNameSuffix ".dev"
             useProguard false
             minifyEnabled false
-            proguardFiles('../proguard-rules.pro', getDefaultProguardFile('proguard-android.txt'))
+            proguardFiles('../proguard-rules.pro')
         }
         release {
-            signingConfig signingConfigs.release
+           // signingConfig signingConfigs.release
             minifyEnabled true
-            proguardFiles('../proguard-rules.pro', getDefaultProguardFile('proguard-android.txt'))
-
-            applicationVariants.all { variant ->
-
-                variant.outputs.each { output ->
-                    if (variant.mappingFile != null) {
-                        copy {
-                            from variant.mappingFile
-                            into "..\\..\\build\\release"
-                            rename { String fileName -> "${build_versions.versionName}(${build_versions.versionCode}).mapping" }
-                        }
-                    }
-                }
-            }
+            proguardFiles('../proguard-rules.pro')
         }
     }
 }
@@ -85,7 +72,6 @@ dependencies {
     api(deps.materialDialogs) { transitive = true }
     api(deps.materialdrawer) { transitive = true }
 
-    compile 'org.jsoup:jsoup:1.12.1'
    // api(deps.fabric.crashlytics) { transitive = true }
 
    // api(deps.firebase.core) { exclude group: 'com.android.support'; transitive = true }

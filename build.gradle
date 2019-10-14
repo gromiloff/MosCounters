@@ -3,15 +3,6 @@ buildscript {
     apply from: 'version_app.gradle'
     addRepos(repositories)
     
-    ext.keys = [
-        'release': [
-            'storePassword' : 'zoonb2b',
-            'keyAlias' : 'zoon-b2b',
-            'keyPassword' : 'zoonb2b',
-            'storeFile' : rootProject.file('release.jks')
-        ]
-    ]
-    
     dependencies {
         classpath deps.plugin.gradle
         classpath deps.plugin.kotlin
