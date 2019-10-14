@@ -33,7 +33,7 @@
         <activity
             android:name="ui.activity.FillUserData"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Rainbow.FullScreen"/>
+            android:windowSoftInputMode="stateAlwaysVisible" />
         <activity
             android:name="ui.activity.Main"
             android:screenOrientation="portrait" />

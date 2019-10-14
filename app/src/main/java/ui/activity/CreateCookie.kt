@@ -6,13 +6,15 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.webkit.*
+import android.webkit.CookieManager
+import android.webkit.WebChromeClient
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.annotation.LayoutRes
 import base.ApiPref
 import gromiloff.observer.EmptyBaseModel
+import gromiloff.observer.event.OpenScreenWithModelData
 import gromiloff.prefs.AppPref
-import org.jsoup.Connection
-import org.jsoup.Jsoup
 import pro.gromiloff.mos.counters.BuildConfig
 import pro.gromiloff.mos.counters.R
 import ui.BaseActivity
@@ -51,7 +53,7 @@ class CreateCookie : BaseActivity<EmptyBaseModel>() {
                     "https://www.mos.ru/", "https://mos.ru/" -> {
                         if(loginSuccess){
                             AppPref.save(ApiPref.Cookie, CookieManager.getInstance().getCookie(url))
-                            finish()
+                            OpenScreenWithModelData(FillUserData::class.java, true).send()
                         } else {
                             loginSuccess = false
                             view.loadUrl("https://www.mos.ru/api/acs/v1/login?back_url=https%3A%2F%2Fwww.mos.ru%2F")

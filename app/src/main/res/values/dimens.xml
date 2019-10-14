@@ -2,4 +2,11 @@
     <dimen name="ur_dimen_list_divider_height">1dp</dimen>
     <dimen name="ur_dimen_list_scrollbar_round">2dp</dimen>
     <dimen name="ur_dimen_list_scrollbar_size">4dp</dimen>
+
+    v
+    <dimen name="padding_low_x2">2dp</dimen>
+    <dimen name="padding_low">4dp</dimen>
+    <dimen name="padding_base">8dp</dimen>
+    <dimen name="padding_x2">16dp</dimen>
+    <dimen name="padding_x3">24dp</dimen>
 </resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mtrl_textinput_default_box_stroke_color">@color/cool_grey_50</color>
+
+    <style name="MyTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Style attributes -->
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="errorTextAppearance">@style/ErrorText</item>
+        <item name="counterTextAppearance">@style/HintText</item>
+
+        <!-- Theme attributes -->
+        <item name="android:textColorHint">@color/cool_grey_50</item>
+
+        <item name="colorControlNormal">@android:color/holo_green_dark</item>
+        <item name="colorControlActivated">@color/pale_grey_three</item>
+    </style>
+
+
+    <style name="ErrorText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/warm_pink</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="HintText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@android:color/holo_green_dark</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources>

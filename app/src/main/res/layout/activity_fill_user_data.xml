@@ -1,15 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/dark"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context="ui.activity.Splash">
-    <WebView
-        android:visibility="invisible"
-        android:id="@+id/web"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_margin="@dimen/padding_x3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</FrameLayout>
+        android:layout_height="wrap_content"
+        android:theme="@style/MyTextInputLayout"
+        app:boxBackgroundMode="outline"
+        android:hint="@string/paycode_hint">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/paycodeInput"
+            android:textColor="@android:color/white"
+            android:inputType="numberDecimal"
+            android:imeOptions="actionNext"
+            android:minEms="10"
+            android:maxEms="10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <requestFocus />
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginLeft="@dimen/padding_x3"
+        android:layout_marginRight="@dimen/padding_x3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/MyTextInputLayout"
+        app:boxBackgroundMode="outline"
+        android:hint="@string/flat_hint">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/flatInput"
+            android:textColor="@android:color/white"
+            android:inputType="numberDecimal"
+            android:imeOptions="actionDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/save"
+        android:text="@string/save"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/color_button"
+        android:background="@drawable/selector_button"
+        android:layout_margin="@dimen/padding_x3"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+</LinearLayout>
